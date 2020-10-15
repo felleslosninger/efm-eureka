@@ -1,0 +1,39 @@
+app.environment: production
+
+server:
+  port: 8761
+  servlet.context-path: /discovery
+
+eureka:
+  environment: ${app.environment}
+  datacenter: DIFI-MOVE
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl.defaultZone: http://localhost:${server.port}${server.servlet.context-path}/eureka/
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri:  git@github.com:felleslosninger/efm-eureka.git
+          search-paths: config
+          force-pull: true
+          basedir: /config_cache
+        health:
+          repositories:
+            integrasjonspunkt:
+              name: integrasjonspunkt
+              profiles: ${app.environment:default}
+            serviceregistry:
+              name: serviceregistry
+              profiles: ${app.environment:default}
+        prefix: /config
+  application:
+    name: "@project.name@"
+
+info.app:
+  name: "@project.name@"
+  description: "@project.description@"
+  version: "@project.version@"
