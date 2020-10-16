@@ -30,7 +30,7 @@ spring:
           uri: git@github.com:felleslosninger/efm-eureka.git
           search-paths: config
           force-pull: true
-          basedir: /config_cache
+          basedir: /tmp/config_cache
         health:
           repositories:
             integrasjonspunkt:

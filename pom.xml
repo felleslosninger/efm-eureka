@@ -95,10 +95,20 @@
 				<version>${dockerfile.maven.plugin.version}</version>
 				<configuration>
 					<repository>${docker.registry}/${project.artifactId}</repository>
+					<tag>${project.version}</tag>
 					<buildArgs>
-						<jarPath>target/${project.build.finalName}.jar</jarPath>
+						<JAR_PATH>target/${project.build.finalName}.jar</JAR_PATH>
 					</buildArgs>
 				</configuration>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
