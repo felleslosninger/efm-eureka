@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jre-alpine
 MAINTAINER Johannes Molland <johannes.molland@digdir.no>
 LABEL package="no.difi.move" artifact="eureka" version="1.0" description="Digitaliseringsdirektoratet (Digdir)">
 
