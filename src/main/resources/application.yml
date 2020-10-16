@@ -4,20 +4,30 @@ server:
   port: 8761
   servlet.context-path: /discovery
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - env
+          - health
+          - info
+
 eureka:
   environment: ${app.environment}
-  datacenter: DIFI-MOVE
+  datacenter: DIGDIR-EFM
   client:
     register-with-eureka: false
     fetch-registry: false
-    serviceUrl.defaultZone: http://localhost:${server.port}${server.servlet.context-path}/eureka/
+    service-url:
+      defaultZone: http://localhost:${server.port}${server.servlet.context-path}/eureka/
 
 spring:
   cloud:
     config:
       server:
         git:
-          uri:  git@github.com:felleslosninger/efm-eureka.git
+          uri: git@github.com:felleslosninger/efm-eureka.git
           search-paths: config
           force-pull: true
           basedir: /config_cache
