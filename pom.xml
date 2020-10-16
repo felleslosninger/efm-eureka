@@ -18,7 +18,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<docker.registry>difimove2</docker.registry>
+		<docker.registry>prodacrpremium1.azurecr.io/eformidling</docker.registry>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 		<dockerfile.maven.plugin.version>1.4.13</dockerfile.maven.plugin.version>
 		<git.commit.id.plugin.version>4.0.2</git.commit.id.plugin.version>
