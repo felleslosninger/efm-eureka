@@ -27,7 +27,7 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:felleslosninger/efm-eureka.git
+          uri: git@ssh.dev.azure.com:v3/dificloud/eformidling/move-config
           search-paths: config
           force-pull: true
           basedir: /tmp/config_cache
