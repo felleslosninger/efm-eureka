@@ -35,10 +35,10 @@ spring:
           repositories:
             integrasjonspunkt:
               name: integrasjonspunkt
-              profiles: ${app.environment:default}
-            serviceregistry:
-              name: serviceregistry
-              profiles: ${app.environment:default}
+              # Configurations for all applications and environments currently reside in the same repository.
+              #  - Therefore it does not matter which configuration we check for.
+              #  - So let us check for integrasjonspunkt-production.
+              profiles: production
         prefix: /config
   application:
     name: "@project.name@"
