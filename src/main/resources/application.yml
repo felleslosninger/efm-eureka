@@ -31,15 +31,9 @@ spring:
           search-paths: config
           force-pull: true
           basedir: /tmp/config_cache
-        health:
-          repositories:
-            integrasjonspunkt:
-              name: integrasjonspunkt
-              # Configurations for all applications and environments currently reside in the same repository.
-              #  - Therefore it does not matter which configuration we check for.
-              #  - So let us check for integrasjonspunkt-production.
-              profiles: production
         prefix: /config
+        health:
+          enabled: false
   application:
     name: "@project.name@"
 
