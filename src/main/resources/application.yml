@@ -27,19 +27,13 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:felleslosninger/efm-eureka.git
+          uri: git@ssh.dev.azure.com:v3/dificloud/eformidling/move-config
           search-paths: config
           force-pull: true
           basedir: /tmp/config_cache
-        health:
-          repositories:
-            integrasjonspunkt:
-              name: integrasjonspunkt
-              profiles: ${app.environment:default}
-            serviceregistry:
-              name: serviceregistry
-              profiles: ${app.environment:default}
         prefix: /config
+        health:
+          enabled: false
   application:
     name: "@project.name@"
 
