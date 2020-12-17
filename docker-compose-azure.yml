@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  efm-eureka:
+    build: .
+    image: eformidling/efm-eureka
+    labels:
+      kubernetesManifestFile: eureka/deployment.yaml
