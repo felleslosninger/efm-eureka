@@ -33,7 +33,7 @@
 	<repositories>
 		<repository>
 			<id>MavenArtifactFeed</id>
-			<url>${azure.maven-artifact-feed.url</url>
+			<url>${azure.maven-artifact-feed.url}</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
