@@ -10,8 +10,7 @@ ENV JAVA_OPTS="" \
 
 RUN addgroup --system --gid 1001 spring && adduser --system --uid 1001 --group spring
 
-ARG JAR_PATH
-ADD --chown=spring:spring ${JAR_PATH} ${APP_DIR}/$APP_FILE_NAME
+ADD --chown=spring:spring target/$APP_FILE_NAME ${APP_DIR}/$APP_FILE_NAME
 
 RUN chmod -R +x $APP_DIR
 RUN mkdir $CACHE_DIR && chown -R spring:spring $CACHE_DIR
