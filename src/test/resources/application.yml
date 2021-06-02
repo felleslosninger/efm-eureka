@@ -1,0 +1,47 @@
+app.environment: test
+
+server:
+    port: 8761
+    servlet.context-path: /discovery
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include:
+                    - env
+                    - health
+                    - info
+
+eureka:
+    environment: ${app.environment}
+    datacenter: DIGDIR-EFM
+    client:
+        register-with-eureka: false
+        fetch-registry: false
+        service-url:
+            defaultZone: http://localhost:${server.port}${server.servlet.context-path}/eureka/
+
+spring:
+    cloud:
+        config:
+            server:
+                git:
+                    uri: git@ssh.dev.azure.com:v3/dificloud/eformidling/move-config
+                    search-paths: config
+                    force-pull: true
+                    basedir: /tmp/config_cache
+                prefix: /config
+                health:
+                    enabled: false
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+    application:
+        name: "@project.name@"
+
+info.app:
+    name: "@project.name@"
+    description: "@project.description@"
+    version: "@project.version@"
+

@@ -7,11 +7,17 @@ server:
 management:
   endpoints:
     web:
+      base-path: /manage
       exposure:
         include:
-          - env
           - health
-          - info
+    endpoint:
+      health:
+        show-details: when_authorized
+  endpoint:
+    health:
+      probes:
+        enabled: true
 
 eureka:
   environment: ${app.environment}
@@ -34,6 +40,12 @@ spring:
         prefix: /config
         health:
           enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
   application:
     name: "@project.name@"
 

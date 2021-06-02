@@ -1,0 +1,83 @@
+<application>
+  <name>INTEGRASJONSPUNKT</name>
+  <instance>
+    <instanceId>810074582:826132f1f074:9093</instanceId>
+    <hostName>826132f1f074</hostName>
+    <app>INTEGRASJONSPUNKT</app>
+    <ipAddr>172.18.0.3</ipAddr>
+    <status>UP</status>
+    <overriddenstatus>UNKNOWN</overriddenstatus>
+    <port enabled="true">9093</port>
+    <securePort enabled="false">443</securePort>
+    <countryId>1</countryId>
+    <dataCenterInfo class="com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo">
+      <name>MyOwn</name>
+    </dataCenterInfo>
+    <leaseInfo>
+      <renewalIntervalInSecs>30</renewalIntervalInSecs>
+      <durationInSecs>90</durationInSecs>
+      <registrationTimestamp>1619677947062</registrationTimestamp>
+      <lastRenewalTimestamp>1619682482389</lastRenewalTimestamp>
+      <evictionTimestamp>0</evictionTimestamp>
+      <serviceUpTimestamp>1619677946554</serviceUpTimestamp>
+    </leaseInfo>
+    <metadata>
+      <orgnumber>810074582</orgnumber>
+      <pr>${pullrequest}</pr>
+      <instanceId>integrasjonspunkt:dac69efd5568d0fd8a37d2924652aa62:810074582</instanceId>
+      <management.port>9093</management.port>
+      <commitId>${buildNumber}</commitId>
+      <version>2.2.1-SNAPSHOT</version>
+      <branch>${scmBranch}</branch>
+    </metadata>
+    <homePageUrl>http://826132f1f074:9093/</homePageUrl>
+    <statusPageUrl>http://826132f1f074:9093/actuator/info</statusPageUrl>
+    <healthCheckUrl>http://826132f1f074:9093/actuator/health</healthCheckUrl>
+    <vipAddress>integrasjonspunkt</vipAddress>
+    <secureVipAddress>integrasjonspunkt</secureVipAddress>
+    <isCoordinatingDiscoveryServer>false</isCoordinatingDiscoveryServer>
+    <lastUpdatedTimestamp>1619677947062</lastUpdatedTimestamp>
+    <lastDirtyTimestamp>1619677946034</lastDirtyTimestamp>
+    <actionType>ADDED</actionType>
+  </instance>
+  <instance>
+    <instanceId>910539892:integrasjonspunkt-bb8b97765-rskpr:9093</instanceId>
+    <hostName>integrasjonspunkt-bb8b97765-rskpr</hostName>
+    <app>INTEGRASJONSPUNKT</app>
+    <ipAddr>10.0.129.161</ipAddr>
+    <status>OUT_OF_SERVICE</status>
+    <overriddenstatus>UNKNOWN</overriddenstatus>
+    <port enabled="true">9093</port>
+    <securePort enabled="false">443</securePort>
+    <countryId>1</countryId>
+    <dataCenterInfo class="com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo">
+      <name>MyOwn</name>
+    </dataCenterInfo>
+    <leaseInfo>
+      <renewalIntervalInSecs>30</renewalIntervalInSecs>
+      <durationInSecs>90</durationInSecs>
+      <registrationTimestamp>1616510081206</registrationTimestamp>
+      <lastRenewalTimestamp>1619682469511</lastRenewalTimestamp>
+      <evictionTimestamp>0</evictionTimestamp>
+      <serviceUpTimestamp>0</serviceUpTimestamp>
+    </leaseInfo>
+    <metadata>
+      <orgnumber>910539892</orgnumber>
+      <pr>${pullrequest}</pr>
+      <instanceId>integrasjonspunkt:e48e90412cdafc17a7ee0927be12598a:910539892</instanceId>
+      <management.port>9093</management.port>
+      <commitId>${buildNumber}</commitId>
+      <version>2.2.0</version>
+      <branch>${scmBranch}</branch>
+    </metadata>
+    <homePageUrl>http://integrasjonspunkt-bb8b97765-rskpr:9093/</homePageUrl>
+    <statusPageUrl>http://integrasjonspunkt-bb8b97765-rskpr:9093/actuator/info</statusPageUrl>
+    <healthCheckUrl>http://integrasjonspunkt-bb8b97765-rskpr:9093/actuator/health</healthCheckUrl>
+    <vipAddress>integrasjonspunkt</vipAddress>
+    <secureVipAddress>integrasjonspunkt</secureVipAddress>
+    <isCoordinatingDiscoveryServer>false</isCoordinatingDiscoveryServer>
+    <lastUpdatedTimestamp>1616510081206</lastUpdatedTimestamp>
+    <lastDirtyTimestamp>1616510080688</lastDirtyTimestamp>
+    <actionType>ADDED</actionType>
+  </instance>
+</application>

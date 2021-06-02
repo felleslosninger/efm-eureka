@@ -15,5 +15,4 @@ public class EfmEurekaApplication {
     public static void main(String[] args) {
         SpringApplication.run(EfmEurekaApplication.class, args);
     }
-
 }
