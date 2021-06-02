@@ -13,7 +13,6 @@ import org.springframework.http.converter.AbstractHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 
-import javax.annotation.Nonnull;
 import javax.servlet.http.HttpServletRequest;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -32,13 +31,12 @@ public class EfmEurekaHttpMessageConverter extends AbstractHttpMessageConverter<
     }
 
     @Override
-    protected boolean supports(@Nonnull Class<?> aClass) {
+    protected boolean supports(Class<?> aClass) {
         return true;
     }
 
-    @Nonnull
     @Override
-    protected final Object readInternal(@Nonnull Class<?> clazz, @Nonnull HttpInputMessage inputMessage) throws HttpMessageNotReadableException {
+    protected final Object readInternal(Class<?> clazz, HttpInputMessage inputMessage) throws HttpMessageNotReadableException {
         try (InputStream inputStream = inputMessage.getBody()) {
             return getDecoder().decode(inputStream, clazz);
         } catch (Exception e) {
@@ -47,7 +45,7 @@ public class EfmEurekaHttpMessageConverter extends AbstractHttpMessageConverter<
     }
 
     @Override
-    protected void writeInternal(@Nonnull Object object, @Nonnull HttpOutputMessage outputMessage) throws HttpMessageNotWritableException {
+    protected void writeInternal(Object object, HttpOutputMessage outputMessage) throws HttpMessageNotWritableException {
         try (OutputStream outputStream = outputMessage.getBody()) {
             getEncoder().encode(object, outputStream);
         } catch (Exception e) {
