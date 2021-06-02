@@ -14,11 +14,15 @@ public class EurekaPersister {
 
     @EventListener
     public void onInstanceRegisteredEvent(EurekaInstanceRegisteredEvent event) {
-        instanceEntityService.persist(event.getInstanceInfo());
+        if (event.getInstanceInfo() != null) {
+            instanceEntityService.persist(event.getInstanceInfo());
+        }
     }
 
     @EventListener
     public void onInstanceRenewedEvent(EurekaInstanceRenewedEvent event) {
-        instanceEntityService.persist(event.getInstanceInfo());
+        if (event.getInstanceInfo() != null) {
+            instanceEntityService.persist(event.getInstanceInfo());
+        }
     }
 }
