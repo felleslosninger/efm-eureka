@@ -18,6 +18,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Configuration
@@ -35,6 +36,8 @@ public class WebConfig extends WebMvcConfigurationSupport {
         xmlXStream.registerConverter(new DateConverter(), XStream.PRIORITY_VERY_HIGH);
         jsonXStream.registerConverter(new WebConfig.PropertySourceDescriptorConverter(jsonXStream.getMapper()), XStream.PRIORITY_VERY_HIGH);
         xmlXStream.registerConverter(new WebConfig.PropertySourceDescriptorConverter(xmlXStream.getMapper()), XStream.PRIORITY_VERY_HIGH);
+        jsonXStream.registerConverter(new WebConfig.LinkedHashMapConverter(jsonXStream.getMapper()), XStream.PRIORITY_VERY_HIGH);
+        xmlXStream.registerConverter(new WebConfig.LinkedHashMapConverter(xmlXStream.getMapper()), XStream.PRIORITY_VERY_HIGH);
         jsonXStream.alias("propertySource", EnvironmentEndpoint.PropertySourceDescriptor.class);
         xmlXStream.alias("propertySource", EnvironmentEndpoint.PropertySourceDescriptor.class);
         jsonXStream.alias("environment", EnvironmentEndpoint.EnvironmentDescriptor.class);
@@ -75,6 +78,36 @@ public class WebConfig extends WebMvcConfigurationSupport {
             descriptor.getProperties().forEach((key, value) -> {
                 underlyingWriter.startNode("property");
                 writer.addAttribute("name", key);
+                writeCompleteItem(value, context, underlyingWriter);
+                underlyingWriter.endNode();
+            });
+        }
+
+        @Override
+        public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext context) {
+            return null;
+        }
+    }
+
+    public static class LinkedHashMapConverter extends AbstractCollectionConverter {
+
+        public LinkedHashMapConverter(Mapper mapper) {
+            super(mapper);
+        }
+
+        @Override
+        public boolean canConvert(Class type) {
+            return LinkedHashMap.class == type;
+        }
+
+        @Override
+        public void marshal(Object source, HierarchicalStreamWriter writer, MarshallingContext context) {
+            LinkedHashMap<String, Object> map = (LinkedHashMap<String, Object>) source;
+
+            HierarchicalStreamWriter underlyingWriter = writer.underlyingWriter();
+            map.forEach((key, value) -> {
+                underlyingWriter.startNode("property");
+                writer.addAttribute("key", key);
                 writeCompleteItem(value, context, underlyingWriter);
                 underlyingWriter.endNode();
             });
