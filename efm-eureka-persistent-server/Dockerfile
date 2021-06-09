@@ -4,7 +4,7 @@ EXPOSE 8762
 
 ENV JAVA_OPTS="" \
     APP_DIR=/opt/digdir \
-    APP_FILE_NAME=efm-eureka-server.jar
+    APP_FILE_NAME=efm-eureka-persistent-server.jar
 
 RUN addgroup --system --gid 1001 spring && adduser --system --uid 1001 --group spring
 

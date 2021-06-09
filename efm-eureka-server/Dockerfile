@@ -6,7 +6,7 @@ ENV JAVA_OPTS="" \
     APP_DIR=/opt/digdir \
     CACHE_DIR=/tmp/config_cache \
     SSH_DIR=/home/spring/.ssh \
-    APP_FILE_NAME=efm-eureka-persistent-server.jar
+    APP_FILE_NAME=efm-eureka-server.jar
 
 RUN addgroup --system --gid 1001 spring && adduser --system --uid 1001 --group spring
 
