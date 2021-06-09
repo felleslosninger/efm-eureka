@@ -1,0 +1,5 @@
+spring:
+    datasource:
+        url: jdbc:mysql://localhost:3309/eureka?useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true&serverTimezone=Europe/Oslo
+        username: root
+

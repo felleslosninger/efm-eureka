@@ -2,7 +2,18 @@ version: '3.8'
 
 services:
   efm-eureka:
-    build: .
-    image: eformidling/efm-eureka
+    build:
+      context: ./efm-eureka-server
+      args:
+        jarPath: target/efm-eureka-server.jar
+    image: eformidling/efm-eureka-server
     labels:
       kubernetesManifestFile: eureka/deployment.yaml
+  efm-eureka-persistent:
+    build:
+      context: ./efm-eureka-persistent-server
+      args:
+        jarPath: target/efm-eureka-persistent-server.jar
+    image: eformidling/efm-eureka-persistent-server
+    labels:
+      kubernetesManifestFile: eureka/persistent.yaml
